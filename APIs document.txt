@@ -1,0 +1,52 @@
+Book Demo APIs
+
+Post:  localhost:6002/api/book-demo
+
+JSON data:
+{
+  "fullName": "Yashika Patil",
+  "email": "yashika.patil@example.com",
+  "organization": "SunBPM Solutions",
+  "mobileNumber": "9876543210",
+  "productsServices": "Workflow Automation",
+  "description": "I would like a demo to understand how SunBPM can optimize our internal approval process."
+}
+
+
+Get All: localhost:6002/api/book-demo
+
+Get By Id: localhost:6002/api/book-demo/{id}
+
+Update by id: localhost:6002/api/book-demo/{id}
+
+delete by id: localhost:6002/api/book-demo/{id}
+
+-----------------------------------------------------------------------------------------------------------
+
+NewsBlogs APIs
+
+Post: localhost:6002/NewsBlogsSave
+
+JSON data:
+{
+  "category": "Technology",
+  "title": "AI Revolution: How Machine Learning is Changing the World",
+  "subtitle": "Exploring the impact of artificial intelligence across industries",
+  "description": "Artificial Intelligence (AI) is transforming the way we live and work. From healthcare to finance, AI-driven solutions are improving efficiency, accuracy, and decision-making. In this article, we delve into the latest advancements in machine learning and their real-world applications.",
+  "img1": "https://example.com/images/ai1.jpg",
+  "img2": "https://example.com/images/ai2.jpg",
+  "img3": "https://example.com/images/ai3.jpg",
+  "heroImage": "https://example.com/images/hero-ai.jpg",
+  "date": "2025-09-04",
+  "year": "2025"
+}
+
+Get All: localhost:6002/allNewsBlogs
+
+Get By Id: localhost:6002/NewsBlogsById/{id}
+
+Get By category: localhost:6002/NewsByCategory/{category}
+
+Update by id: localhost:6002/NewsBlogsUpdateById/{id}
+
+delete by id: localhost:6002/deleteNews/{id}
