@@ -18,10 +18,6 @@ public class NewsBlogsService {
     public Optional<NewsBlogs> getNewsBlogsById(long id) {
         return repo.findById(id);
     }
-    
-    public List<NewsBlogs> getByLanguageCode(String languageCode) {
-        return repo.findByLanguageCode(languageCode);
-    }
 
     public NewsBlogs updateNewsBlogs(long newsBlogsId, NewsBlogs newsBlogsData) {
         Optional<NewsBlogs> optionalNews = repo.findById(newsBlogsId);

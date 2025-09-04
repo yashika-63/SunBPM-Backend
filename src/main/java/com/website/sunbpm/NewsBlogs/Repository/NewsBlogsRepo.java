@@ -17,9 +17,5 @@ public interface NewsBlogsRepo extends JpaRepository<NewsBlogs, Long> {
     Page<NewsBlogs> findAll(Pageable pageable);
 
     Page<NewsBlogs> findByCategoryContainingIgnoreCase(String newsCredit, Pageable pageable);
-
-    List<NewsBlogs> findByLanguageCode(String languageCode);
-
-    Page<NewsBlogs> findByCategoryContainingIgnoreCaseAndLanguageCode(String category, String languageCode, Pageable pageable);
-
+    
 }
