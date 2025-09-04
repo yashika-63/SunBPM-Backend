@@ -15,7 +15,8 @@ public class SunbpmApplication implements WebMvcConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("http://localhost:5182")  //15.207.163.30
+		// registry.addMapping("/**").allowedOrigins("http://localhost:5182") 
+		registry.addMapping("/**").allowedOrigins("http://15.207.163.30:5182") 
 				// Replace with your frontend URL
 				.allowedMethods("GET", "POST", "PUT", "DELETE").allowCredentials(true);
 	}
