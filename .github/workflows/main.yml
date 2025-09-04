@@ -1,0 +1,44 @@
+name: Push-to-EC2 instance
+
+# Trigger deployment only on push to main branch 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Push to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v1
+
+      - name: Deploy to my EC2 instance
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          SOURCE: "./"
+          REMOTE_HOST: ec2-52-66-137-154.ap-south-1.compute.amazonaws.com
+          REMOTE_USER: ubuntu
+          TARGET: /home/ubuntu/sunbpmbackend
+
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ec2-52-66-137-154.ap-south-1.compute.amazonaws.com
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -xe
+            sudo apt -y update
+            sudo apt -y update
+            cd /home/ubuntu/sunbpmbackend
+            # Run Maven to package the application
+            mvn clean package
+            # Restart the server (assuming you have a service setup)
+            sudo systemctl restart pristine.service
+            # Any additional commands you want to run post-deployment
+           
+            
